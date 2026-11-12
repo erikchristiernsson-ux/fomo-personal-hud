@@ -32,7 +32,7 @@ def test_mirror_refuses_weak_config(env, monkeypatch):
   monkeypatch.setenv("PHUD_MODE", "mirror"); monkeypatch.setenv("PERSONAL_HUD_PASSWORD", MPW); monkeypatch.setenv("RELAY_TOKEN", "short")
   s = importlib.reload(s); s.AUTH = None
   with pytest.raises(SystemExit): s._startup()
-  monkeypatch.setenv("RELAY_TOKEN", TOKEN); monkeypatch.setenv("PERSONAL_HUD_PASSWORD", "only-12-char")
+  monkeypatch.setenv("RELAY_TOKEN", TOKEN); monkeypatch.setenv("PERSONAL_HUD_PASSWORD", "short7!")
   s = importlib.reload(s); s.AUTH = None
   with pytest.raises(SystemExit): s._startup()
 

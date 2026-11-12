@@ -45,7 +45,7 @@ def _startup():
   if not get_auth().enabled: raise SystemExit("PERSONAL_HUD_PASSWORD is not set; refusing to start without a password.")
   if MODE == "mirror":
     if len(os.environ.get("RELAY_TOKEN", "")) < 32: raise SystemExit("mirror mode needs RELAY_TOKEN (32+ characters).")
-    if len(os.environ.get("PERSONAL_HUD_PASSWORD", "")) < 16: raise SystemExit("mirror mode needs PERSONAL_HUD_PASSWORD of 16+ characters.")
+    if len(os.environ.get("PERSONAL_HUD_PASSWORD", "")) < 8: raise SystemExit("mirror mode needs PERSONAL_HUD_PASSWORD of 8+ characters.")
 
 OPEN = {("GET", "/login"), ("POST", "/login"), ("GET", "/healthz"), ("GET", "/static/hud.css")}
 UNSAFE = {"POST", "PUT", "PATCH", "DELETE"}
