@@ -137,7 +137,9 @@ def test_push_agent_rejects_plain_http_remote(tmp_path):
 def test_vendored_auth_matches_box():
   box = "/workspace/trader/firm/firm/hud/auth.py"
   if not os.path.exists(box): pytest.skip("box original not present")
-  assert filecmp.cmp(box, os.path.join(HERE, "phud", "auth.py"), shallow=False)
+  # Only intended difference: MIN_PUBLIC_LEN lowered to 8 for the personal HUD (Erik's choice, 2026-11-12).
+  strip = lambda f: [l for l in open(f).read().splitlines() if not l.startswith("MIN_PUBLIC_LEN =")]
+  assert strip(box) == strip(os.path.join(HERE, "phud", "auth.py"))
 
 def test_repo_files_have_no_secrets():
   for f in (".password", ".relay.env"):

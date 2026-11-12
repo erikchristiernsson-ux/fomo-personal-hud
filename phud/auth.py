@@ -9,7 +9,7 @@ from collections import defaultdict, deque
 
 COOKIE, PRE = "hud_session", "hud_pre"
 TTL = 12 * 3600
-MIN_PUBLIC_LEN = 10
+MIN_PUBLIC_LEN = 8
 WINDOW, PER_IP, GLOBAL = 15 * 60, 5, 30
 
 class Auth:
