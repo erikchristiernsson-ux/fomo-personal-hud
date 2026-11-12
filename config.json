@@ -1,0 +1,8 @@
+{
+  "firm_name": "FOMO Trading Firm",
+  "fomo_balance_usd": null,
+  "fomo_balance_set": null,
+  "goal_start_usd": 4.00,
+  "goal_multiple": 10,
+  "_note": "fomo_balance_usd null = read Erik's real Fomo balance from team/RULES.md. Set a number (and fomo_balance_set date) only when Erik reports a new balance."
+}

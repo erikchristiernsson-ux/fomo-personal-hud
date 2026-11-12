@@ -1,0 +1,11 @@
+.password
+.relay.env
+*.env
+data/
+shots/
+__pycache__/
+.pytest_cache/
+*.db
+*.db-*
+*.log
+*.pid

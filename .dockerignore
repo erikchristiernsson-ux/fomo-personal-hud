@@ -1,0 +1,11 @@
+.git
+.password
+.relay.env
+data/
+shots/
+tests/
+tools/
+__pycache__/
+.pytest_cache/
+*.db
+*.log

@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0613"><meta name="robots" content="noindex,nofollow">
+<title>Erik's HUD · FOMO Trading Firm</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="/static/hud.css"></head>
+<body>
+<div id="toasts" aria-live="polite"></div>
+<header class="top">
+  <div class="brand"><span class="logo">F</span><span>FOMO <b>Personal HUD</b></span></div>
+  <div class="badges"><span class="badge b-rules" id="rulesBadge">Rules v—</span><span class="badge b-alert">ALERT MODE · you trade</span><span class="badge b-mirror" id="mirrorBadge" hidden></span></div>
+  <div class="clock"><span class="dot" id="engDot" title="engine status"></span><span id="clock">--:--:--</span><span class="tz">Stockholm</span></div>
+</header>
+<div class="stale" id="stale" hidden></div>
+<main class="grid">
+  <section class="col col-l">
+    <article class="card hero">
+      <div class="hero-top"><span class="hero-lab">Available to trade</span><span class="hero-chip">Fomo · real</span></div>
+      <div class="hero-bal" id="heroBal">—</div>
+      <div class="hero-sub" id="heroSub">loading…</div>
+      <svg class="hero-spark" id="heroSpark" viewBox="0 0 300 44" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div class="hero-shadow" id="heroShadow"></div>
+    </article>
+    <article class="card goal">
+      <div class="card-h"><h2>Goal</h2><span class="muted sm" id="goalLabel"></span></div>
+      <div class="goalbar"><div class="goal-fill" id="goalFill"></div><div class="goal-flag" id="goalFlag">—</div>
+        <div class="tick" style="left:11.11%"><i></i><span>2×</span></div>
+        <div class="tick" style="left:44.44%"><i></i><span>5×</span></div>
+        <div class="tick" style="left:100%"><i></i><span>10×</span></div>
+      </div>
+      <div class="goal-foot"><span id="goalNow"></span><span id="goalTarget"></span></div>
+    </article>
+    <article class="card chat" id="chatCard">
+      <div class="card-h"><h2><span class="ava ava-sm" data-k="MANAGER">M</span> Chat with Mona</h2><span class="muted sm" id="chatCounts"></span></div>
+      <div class="chat-note" id="relayNote">Mona can't receive web messages instantly. A relay checks every 5 minutes; her reply shows up here.</div>
+      <div class="msgs" id="msgs"><div class="empty">No messages yet. Say hi to Mona.</div></div>
+      <form class="composer" id="composer">
+        <textarea id="chatIn" rows="1" maxlength="4000" placeholder="Message Mona…" aria-label="Message Mona"></textarea>
+        <button class="send" type="submit" aria-label="Send">➤</button>
+      </form>
+    </article>
+    <article class="card closed">
+      <div class="card-h"><h2>Closed <span class="count" id="closedCount">0</span></h2><span class="muted sm">shadow / paper trades from firm.db</span></div>
+      <div id="closedList" class="list"></div>
+    </article>
+  </section>
+  <section class="col col-r">
+    <article class="card firm">
+      <div class="firm-h">
+        <div><h1 id="firmName">FOMO Trading Firm</h1><div class="muted" id="firmSub">— bots</div></div>
+        <div class="eng" id="engBox"></div>
+      </div>
+      <div class="held" id="held"></div>
+      <div id="bots" class="bots"></div>
+    </article>
+    <article class="card feed">
+      <div class="card-h"><h2>Activity</h2><span class="muted sm">events, reports, handoffs</span></div>
+      <div id="feed" class="list"></div>
+    </article>
+  </section>
+</main>
+<footer class="foot">Watch-only. Bots alert, you place every trade yourself in Fomo. Values come from RULES.md, firm.db and team reports; anything unreadable shows “missing”. <a href="#" id="logout">Sign out</a></footer>
+<script src="/static/hud.js"></script>
+</body></html>

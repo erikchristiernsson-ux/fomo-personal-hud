@@ -1,0 +1,24 @@
+# Render Blueprint: Erik's personal HUD, phone mirror. One free web service built from the Dockerfile.
+# Free instances sleep after ~15 min idle; the box push agent posts every 60 s, which keeps it awake while the box is up.
+# Memory only: a restart forgets the snapshot and any phone messages not yet pulled (<= 1 min); the box re-sends the rest.
+services:
+  - type: web
+    name: fomo-personal-hud
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PERSONAL_HUD_PASSWORD        # Erik's login (16+ chars); value is in the box's personal_hud/.relay.env
+        sync: false
+      - key: RELAY_TOKEN                  # shared with the box push agent; value in .relay.env
+        sync: false
+      - key: PERSONAL_HUD_SESSION_SECRET  # keeps Erik signed in across restarts; value in .relay.env
+        sync: false
+      - key: PHUD_MODE
+        value: mirror
+      - key: PERSONAL_HUD_PUBLIC
+        value: "1"
+      - key: TRUST_PROXY
+        value: "1"

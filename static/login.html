@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0613"><meta name="robots" content="noindex,nofollow"><title>Erik's HUD · Sign in</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="/static/hud.css"></head><body class="login">
+<main class="login-w">
+  <div class="brand"><span class="logo">F</span><span>FOMO <b>Personal HUD</b></span></div>
+  <h1>Welcome back, Erik</h1>
+  <p class="muted">Watch the firm and talk with Mona. Watch-only: no trading, deposits or wallet here.</p>
+  <div class="login-msg" role="alert">{{MSG}}</div>
+  <form method="post" action="/login" autocomplete="on">
+    <input type="hidden" name="pre" value="{{PRE}}">
+    <input type="text" name="username" value="erik" autocomplete="username" hidden>
+    <label class="lab" for="pw">Password</label>
+    <input id="pw" name="password" type="password" autocomplete="current-password" required autofocus>
+    <button type="submit" class="btn-primary">Sign in</button>
+  </form>
+  <div class="foot">5 wrong tries locks this device for 15 minutes.</div>
+</main></body></html>
